@@ -1,0 +1,26 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="{% static 'bootstrap.css' %}">
+</head>
+<body>
+<h1 class="display-1 text-center">{{pageTitle}}</h1>
+<div class="container">
+    <div class="row">
+        {% for flight in flights %}
+            <div class="card col-4">
+                <img src="{{flight.image.url}}" class="card-img-top" alt="...">
+                  <div class="card-body">
+                    <h5 class="card-title">{{flight.code}}</h5>
+                    <p class="card-text">{{flight.take_off_airport}} - {{flight.landing_airport}}</p>
+                    <a href="#" class="btn btn-primary">Details</a>
+                  </div>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+</body>
+</html>

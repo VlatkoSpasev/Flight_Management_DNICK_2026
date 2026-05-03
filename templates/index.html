@@ -7,20 +7,21 @@
     <link rel="stylesheet" href="{% static 'bootstrap.css' %}">
 </head>
 <body>
-<h1 class="display-1 text-center">{{pageTitle}}</h1>
-<div class="container">
-    <div class="row">
-        {% for flight in flights %}
-            <div class="card col-4">
-                <img src="{{flight.image.url}}" class="card-img-top" alt="...">
-                  <div class="card-body">
-                    <h5 class="card-title">{{flight.code}}</h5>
-                    <p class="card-text">{{flight.take_off_airport}} - {{flight.landing_airport}}</p>
-                    <a href="#" class="btn btn-primary">Details</a>
-                  </div>
-            </div>
-        {% endfor %}
+    <h1 class="display-1 text-center">{{pageTitle}}</h1>
+    <div class="container">
+        <a class="btn btn-success" href="{% url 'add' %}">Add New Flight</a>
+        <div class="row">
+            {% for flight in flights %}
+                <div class="card col-4">
+                    <img src="{{flight.image.url}}" class="card-img-top" alt="...">
+                      <div class="card-body">
+                        <h5 class="card-title">{{flight.code}}</h5>
+                        <p class="card-text">{{flight.take_off_airport}} - {{flight.landing_airport}}</p>
+                        <a href="{% url 'details' flight.id %}" class="btn btn-primary">Details</a>
+                      </div>
+                </div>
+            {% endfor %}
+        </div>
     </div>
-</div>
 </body>
 </html>

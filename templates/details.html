@@ -1,0 +1,18 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="{% static 'bootstrap.css' %}">
+</head>
+<body>
+    <h1 class="display-1 text-center">{{flight.code}}</h1>
+    <div class="container">
+        <a class="btn btn-warning" href="{% url 'index' %}">Back</a>
+        <p>Flight from: {{flight.take_off_airport}}</p>
+        <p>Flight to: {{flight.landing_airport}}</p>
+        <img src="{{flight.image.url}}">
+    </div>
+</body>
+</html>
